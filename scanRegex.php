@@ -5,8 +5,10 @@
 <!--        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>-->
     <script src="instascan.min.js" type="text/javascript"></script>
-    <script src="jquery-3.4.1.min.js" type="text/javascript"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- <script src="jquery-3.4.1.min.js" type="text/javascript"></script> -->
+    <script src="jquery-3.6.0.min.js" type="text/javascript"></script>
+
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
 <style>
 #preview{
    width:500px;
@@ -36,7 +38,7 @@ console.log(words[0]);
 
 
 //        window.location.href="http://localhost:8888/dashboardadmin/couponDemoTry.php?mrp="+words[0]+"&shopId="+words[1];
-                            window.location.href="http://localhost:8888/dashboardadmin/setSession.php?mrp="+words[0]+"&shopId="+words[1];
+                            window.location.href="http://localhost/coupon7/setSession.php?mrp="+words[0]+"&shopId="+words[1];
 
 //            var str=content;
 //            str.split();
