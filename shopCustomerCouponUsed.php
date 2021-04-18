@@ -1,5 +1,5 @@
 <?php ob_start();?>
-<?php include './customerDashboard.php'; ?>
+<?php include './shopKeeperDashboard.php'; ?>
 <?php include './connection.php';?>
 <div class="content-wrapper" style="padding: 30px;">
         <link href="//cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
@@ -22,7 +22,8 @@
         <thead>
            
             <tr>
-                <th>Shop Name</th>
+                <th>Customer Name</th>
+                <th>Contact Number</th>
                 <th>Offer</th>
                 <th style="width: 10%; " >Image</th>
                 <th style="width: 10%;">used Date</th>
@@ -35,14 +36,15 @@
                 <tbody>
 
             <?php
-        $result="select tbl_shop.shopName ,tbl_coupon.offer,tbl_coupon.couponImage, tbl_redeemcoupon.udate,tbl_redeemcoupon.mrp,tbl_redeemcoupon.discount,tbl_redeemcoupon.finalAmount from tbl_redeemcoupon INNER JOIN tbl_coupon on tbl_redeemcoupon.couponId=tbl_coupon.couponId INNER join tbl_shop on tbl_coupon.shopId= tbl_shop.shopId where tbl_redeemcoupon.customerId='".$_SESSION["cId"]."'";
+        $result="select tbl_customer.fName,tbl_customer.lName,tbl_customer.contactNo ,tbl_coupon.offer,tbl_coupon.couponImage, tbl_redeemcoupon.udate,tbl_redeemcoupon.mrp,tbl_redeemcoupon.discount,tbl_redeemcoupon.finalAmount from tbl_redeemcoupon INNER JOIN tbl_coupon on tbl_redeemcoupon.couponId=tbl_coupon.couponId INNER join tbl_customer on tbl_redeemcoupon.customerId= tbl_customer.cId where tbl_coupon.shopId='".$_SESSION["sId"]."'";
        
         $query=$conn->query($result);
       while ($r= mysqli_fetch_array($query))
             {
           ?>
           <tr>
-              <td><?php echo $r["shopName"];?></td>
+              <td><?php echo $r["fName"]." ".$r["lName"];?></td>
+              <td><?php echo $r["contactNo"]; ?></td>
                 <td><?php  echo $r["offer"];?></td>
                 <td  ><img style=" height: 100px;" src="./image/coupons/<?php  echo $r["couponImage"];?>" alt="" srcset=""></td>
                 <td><?php  echo $r["udate"];?></td>

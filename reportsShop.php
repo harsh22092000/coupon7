@@ -2,7 +2,8 @@
 <?php include './connection.php'; ?>
 <?php 
 $sql = "select count(*) from tbl_redeemCoupon";
-$sql1 = "select count(*) from tbl_Shop";
+$sql1="select count(*) from tbl_redeemcoupon INNER JOIN tbl_coupon on tbl_redeemcoupon.couponId = tbl_coupon.couponId where tbl_coupon.shopId=2";
+// $sql1 = "select count(*) from tbl_redeemCoupon";
 $sql2 = "select count(*) from tbl_coupon where shopId=".$_SESSION["sId"];
 
 
@@ -18,12 +19,12 @@ $result = $conn->query($sql);
 
     if ($rows["count(*)"]> 0) {
 $noofreg=$rows["count(*)"];
-$noofshop=$rows1["count(*)"];
+$noofcouponused=$rows1["count(*)"];
 $noofcoupon=$rows2["count(*)"];
 }
  else {
     $noofreg=5;
-    $noofshop=1;
+    $noofcouponused=1;
     $noofcoupon=100;
  }
 ?>
@@ -55,14 +56,14 @@ $noofcoupon=$rows2["count(*)"];
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                  <h3><?php echo $noofshop;?></h3>
+                  <h3><?php echo $noofcouponused;?></h3>
 
                 <p>Redeemed Coupons</p>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="shopCustomerCouponUsed.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
             <div class="col-lg-3 col-6">
