@@ -71,7 +71,7 @@ if(empty($_SESSION) || $_SESSION["role"]!='C')
             </a>
           </li>
           <li class="nav-item">
-              <a href="reportsShop.php" class="nav-link ">
+              <a href="customerMyCouponUsed.php" class="nav-link ">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Reports
