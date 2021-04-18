@@ -102,7 +102,7 @@ VALUES ('".$_POST[cCode]."','".$_SESSION['sId']."' ,'".$fileun."', '".$_POST[dis
 if ($conn->query($sql) === TRUE) {
   if (move_uploaded_file($tempname, $folder))  
         { 
-              
+              echo "Success";
         }
         else
         { 
@@ -117,7 +117,7 @@ if ($conn->query($sql) === TRUE) {
 $conn->close();
 
  echo '<script>alert("Successfully Inserted");</script>'; 
- header('location:addCouponShop.php');
+//  header('location:addCouponShop.php');
        
 }        
 }

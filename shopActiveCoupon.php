@@ -22,43 +22,61 @@
         <thead>
            
             <tr>
-                <th>Customer Name</th>
-                <th>Contact Number</th>
+                <th>Sr.No</th>
+                <th>couponCode</th>
                 <th>Offer</th>
+                <th>Discount</th>
                 <th style="width: 10%; " >Image</th>
-                <th style="width: 10%;">used Date</th>
-                <th style="width: 10%;">Mrp</th>
-                <th style="width: 10%;" >Discount</th>
-                <th>Final Amount</th>
+                <th style="width: 10%;">Start Date</th>
+                <th style="width: 10%;">expire Date</th>
+                <th style="width: 10%;" > is approve</th>
+                
 
             </tr>
         </thead>
                 <tbody>
 
             <?php
-        $result="select tbl_customer.fName,tbl_customer.lName,tbl_customer.contactNo ,tbl_coupon.offer,tbl_coupon.couponImage, tbl_redeemcoupon.udate,tbl_redeemcoupon.mrp,tbl_redeemcoupon.discount,tbl_redeemcoupon.finalAmount from tbl_redeemcoupon INNER JOIN tbl_coupon on tbl_redeemcoupon.couponId=tbl_coupon.couponId INNER join tbl_customer on tbl_redeemcoupon.customerId= tbl_customer.cId where tbl_coupon.shopId='".$_SESSION["sId"]."'";
-       
+        $result="SELECT tbl_coupon.couponCode, tbl_coupon.couponImage,offer,discount,couponDate,couponExpireDate,isApprove FROM tbl_coupon WHERE shopId='".$_SESSION["sId"]."'";
+       $sr=1;
         $query=$conn->query($result);
       while ($r= mysqli_fetch_array($query))
             {
           ?>
           <tr>
-              <td><?php echo $r["fName"]." ".$r["lName"];?></td>
-              <td><?php echo $r["contactNo"]; ?></td>
+            <td><?php echo $sr;?></td>
+             <td><?php echo $r["couponCode"];?></td>
                 <td><?php  echo $r["offer"];?></td>
+                <td><?php echo $r["discount"]."%";?></td>
                 <td  ><img style=" height: 100px;" src="./image/coupons/<?php  echo $r["couponImage"];?>" alt="" srcset=""></td>
-                <td><?php  echo $r["udate"];?></td>
-                <td><?php  echo $r["mrp"];?></td>
-                <td><?php echo $r["discount"];?></td>
-                <td>
-                    
-                    <!--<input type="submit" name="submit" value="Approve" class="action btn btn-outline-primary">-->
-                    <!--<input type="submit" name="submit" value="Reject" class="action btn btn-outline-danger">-->
-
-                    <?php   echo $r["finalAmount"];?></td>
-
-          </tr>
+                <td><?php  echo $r["couponDate"];?></td>
+                <td><?php  echo $r["couponExpireDate"];?></td>
+                
+                <td> <?php 
+                if ($r["isApprove"]==1)
+                {?>
+                    <span class="badge bg-success">
+                <?php echo "Active"; ?>
+                    </span>
+                <?php }
+                else if ($r["isApprove"]==0){
+                ?>
+                    <span class="badge bg-warning">  
+                   <?php echo 'PENDING'; ?>
+                    </span>
+                 <?php   
+                }
+                else{
+                ?>
+                <span class="badge bg-danger">  
+                   <?php echo 'INACTIVE'; ?>
+                    </span>
+                <?php }?>
+                </td>
+                
+                </tr>
             <?php
+            $sr++;
             }
         ?>
        

@@ -4,7 +4,7 @@
 $sql = "select count(*) from tbl_redeemCoupon";
 $sql1="select count(*) from tbl_redeemcoupon INNER JOIN tbl_coupon on tbl_redeemcoupon.couponId = tbl_coupon.couponId where tbl_coupon.shopId=2";
 // $sql1 = "select count(*) from tbl_redeemCoupon";
-$sql2 = "select count(*) from tbl_coupon where shopId=".$_SESSION["sId"];
+$sql2 = "select count(*) from tbl_coupon where shopId='".$_SESSION["sId"]."' and isApprove=1";
 
 
 $result = $conn->query($sql);
@@ -93,7 +93,7 @@ $noofcoupon=$rows2["count(*)"];
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="shopActiveCoupon.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
