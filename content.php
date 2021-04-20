@@ -3,7 +3,7 @@
 <?php 
 $sql = "select count(*) from tbl_Customer";
 $sql1 = "select count(*) from tbl_Shop";
-$sql2 = "select count(*) from tbl_coupon";
+$sql2 = "select count(*) from tbl_redeemCoupon";
 
 
 $result = $conn->query($sql);
@@ -87,12 +87,12 @@ $noofcoupon=$rows2["count(*)"];
               <div class="inner">
                 <h3><?php echo $noofcoupon; ?><sup style="font-size: 20px"></sup></h3>
 
-                <p>Number of Coupons</p>
+                <p>Coupons Redeemed</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="./adminCustomerCouponUsed.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -100,16 +100,16 @@ $noofcoupon=$rows2["count(*)"];
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
-<!--            <div class="small-box bg-danger">
+           <div class="small-box bg-danger">
               <div class="inner">
                 <h3>0</h3>
-                <p></p>
+                <p>Active Coupons</p>
               </div>
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>
               </div>
               <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>-->
+            </div>
           </div>
         </div>
         <div class="row">
