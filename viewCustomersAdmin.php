@@ -32,7 +32,7 @@
    <!--adfadf-->
    <!--<script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/jquery.dataTables.min.js"></script>-->
         <meta charset="UTF-8">
-    
+        <center><h1 id="reportHead">Approved Customers</h1></center>
         <table id="example" class="display" style="width:100%">
         <thead>
            

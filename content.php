@@ -1,9 +1,10 @@
 <?php include './index.php';?>
 <?php include './connection.php'; ?>
 <?php 
-$sql = "select count(*) from tbl_Customer";
+$sql = "select count(*) from tbl_Customer where isApprove=1";
 $sql1 = "select count(*) from tbl_Shop";
 $sql2 = "select count(*) from tbl_redeemCoupon";
+$sql3 = "select count(*) from tbl_coupon where isApprove=1 and couponExpireDate>'".date('Y-m-d')."'";
 
 
 $result = $conn->query($sql);
@@ -16,15 +17,21 @@ $result = $conn->query($sql);
     $result2 = $conn->query($sql2);
     $rows2=$result2->fetch_assoc();
 
+    $result3 = $conn->query($sql3);
+    $rows3=$result3->fetch_assoc();
+
+
     if ($rows["count(*)"]> 0) {
 $noofreg=$rows["count(*)"];
 $noofshop=$rows1["count(*)"];
 $noofcoupon=$rows2["count(*)"];
+$noofAC=$rows3["count(*)"];
 }
  else {
     $noofreg=5;
     $noofshop=1;
     $noofcoupon=100;
+    $noofAC=3;
  }
 ?>
 <div class="content-wrapper">
@@ -71,12 +78,12 @@ $noofcoupon=$rows2["count(*)"];
               <div class="inner">
                 <h3><?php echo $noofreg?></h3>
 
-                <p>User Registrations</p>
+                <p>Approved Customer</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="viewCustomersAdmin.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
             
@@ -100,9 +107,9 @@ $noofcoupon=$rows2["count(*)"];
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
-           <div class="small-box bg-danger">
+           <div class="small-box bg-primary">
               <div class="inner">
-                <h3>0</h3>
+                <h3><?php echo $noofAC; ?></h3>
                 <p>Active Coupons</p>
               </div>
               <div class="icon">

@@ -18,6 +18,7 @@
                 width: 70px;
             }
         </style>
+        <center><h1 id="reportHead">Redeemed Coupons</h1></center>
         <table id="example" class="display" style="width:100%">
         <thead>
            
