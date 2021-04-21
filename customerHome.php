@@ -5,5 +5,5 @@ $_SESSION['mrp']=NULL;
 ?>
 <div class="content-wrapper">
     
-    <h1> Welcome to Coupon 7</h1>
+    <h1> Thankyou for Using Coupon 7, Have a great day ahead</h1>
 </div>

@@ -2,9 +2,9 @@
 <?php include './connection.php'; ?>
 <?php 
 $sql = "select count(*) from tbl_redeemCoupon";
-$sql1="select count(*) from tbl_redeemcoupon INNER JOIN tbl_coupon on tbl_redeemcoupon.couponId = tbl_coupon.couponId where tbl_coupon.shopId=2";
+$sql1="select count(*) from tbl_redeemcoupon INNER JOIN tbl_coupon on tbl_redeemcoupon.couponId = tbl_coupon.couponId where tbl_coupon.shopId='".$_SESSION["sId"]."'";
 // $sql1 = "select count(*) from tbl_redeemCoupon";
-$sql2 = "select count(*) from tbl_coupon where shopId='".$_SESSION["sId"]."' and isApprove=1";
+$sql2 = "select count(*) from tbl_coupon where shopId='".$_SESSION["sId"]."' and isApprove=1 and couponExpireDate >'".date('Y-m-d')."'";
 
 
 $result = $conn->query($sql);
@@ -66,12 +66,14 @@ $noofcoupon=$rows2["count(*)"];
               <a href="shopCustomerCouponUsed.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
-            <div class="col-lg-3 col-6">
+            
+            <!-- comment report card -->
+            <!-- <div class="col-lg-3 col-6"> -->
             <!-- small box -->
-            <div class="small-box bg-warning">
-              <div class="inner">
-                <h3><?php echo $noofreg?></h3>
-
+            <!-- <div class="small-box bg-warning">
+              <div class="inner"> -->
+                <!-- <h3><?php //echo $noofreg?></h3> -->
+<!-- 
                 <p>User Registrations</p>
               </div>
               <div class="icon">
@@ -79,7 +81,9 @@ $noofcoupon=$rows2["count(*)"];
               </div>
               <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
-          </div>
+          </div> -->
+            <!-- comment report card -->
+
             
           <!-- ./col -->
           <div class="col-lg-3 col-6">

@@ -29,7 +29,8 @@
                 <th style="width: 10%; " >Image</th>
                 <th style="width: 10%;">Start Date</th>
                 <th style="width: 10%;">expire Date</th>
-                <th style="width: 10%;" > is approve</th>
+                <!-- <th style="width: 10%;" > is approve</th> -->
+                <th>Status</th>
                 
 
             </tr>
@@ -52,28 +53,37 @@
                 <td><?php  echo $r["couponDate"];?></td>
                 <td><?php  echo $r["couponExpireDate"];?></td>
                 
-                <td> <?php 
+                <td><?php 
+            if($r["couponExpireDate"]>date('Y-m-d')){
                 if ($r["isApprove"]==1)
                 {?>
                     <span class="badge bg-success">
                 <?php echo "Active"; ?>
                     </span>
                 <?php }
-                else if ($r["isApprove"]==0){
+                else if($r["isApprove"]==2){
                 ?>
-                    <span class="badge bg-warning">  
-                   <?php echo 'PENDING'; ?>
+                    <span class="badge bg-secondary">  
+                   <?php echo 'Rejected'; ?>
                     </span>
                  <?php   
                 }
-                else{
-                ?>
-                <span class="badge bg-danger">  
-                   <?php echo 'INACTIVE'; ?>
+                else { ?>
+                    <span class="badge bg-warning">  
+
+                    <?php echo "pending";?>
                     </span>
-                <?php }?>
-                </td>
-                
+
+            <?php
+                }
+            }
+            else
+            {?>
+                                <span class="badge bg-danger">  
+                   <?php echo 'Expired'; ?>
+            <?php
+            }
+                ?></td>
                 </tr>
             <?php
             $sr++;
