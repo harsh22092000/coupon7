@@ -12,7 +12,27 @@
     <script type="text/javascript" src="//cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
         <!--fads-->
         
-        <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/jquery.dataTables.min.js"></script>
+<!-- pdf -->
+
+<link rel="stylesheet" href="plugins\datatables\jquery.dataTables.min.css">
+        <link rel="stylesheet" href="plugins\datatables\buttons.dataTables.min.css">
+        
+        <script src="./plugins/jquery/jquery.min.js"></script>
+         <script src="./plugins/Others/datatables/jquery.dataTables.min.js"></script>
+<script src="./plugins/Others/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="./plugins/Others/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="./plugins/Others/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="./plugins/Others/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="./plugins/Others/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="./plugins/Others/jszip/jszip.min.js"></script>
+<script src="./plugins/Others/pdfmake/pdfmake.min.js"></script>
+<script src="./plugins/Others/pdfmake/vfs_fonts.js"></script>
+<script src="./plugins/Others/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="./plugins/Others/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="./plugins/Others/datatables-buttons/js/buttons.colVis.min.js"></script>
+        
+<!-- pdf -->
+
         <style>
             .action{
                 width: 70px;
@@ -21,8 +41,11 @@
                 color: red;
             }
         </style>
+        
+        
         <center><h1>Approved Coupon</h1></center>
-        <table id="example" class="display" style="width:100%">
+        <span class="exportas"> </span>
+        <table id="example" class="display nowarp" style="width:100%">
         <thead>
            
             <tr>
@@ -94,8 +117,15 @@ $sr=1;
     </table>
        
 <script type="text/javascript">
+// $(document).ready(function() {
+//     $('#example').DataTable();
+// } );
+
 $(document).ready(function() {
-    $('#example').DataTable();
+    $("#example").DataTable({
+        
+      "buttons": ["copy", "csv", "pdf", "print"]
+    }).buttons().container().appendTo('.exportas');
 } );
 
 
