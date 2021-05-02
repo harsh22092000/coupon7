@@ -43,7 +43,7 @@
                 <th>Email</th>
                 <th style="width: 10%;">Address</th>
                 <th>Email Verified</th>
-                <th>Is Verified</th>
+                <th>Manage</th>
 
             </tr>
         </thead>
