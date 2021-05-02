@@ -1,5 +1,10 @@
 <?php include './index.php'; ?>
 <?php include './connection.php'; ?>
+<style>
+erm{
+    color:red;
+}
+</style>
 <?php 
 $flag=0;
 if(isset($_REQUEST["submit"])){
@@ -134,6 +139,16 @@ $conn->close();
  echo '<script>alert("Failed");</script>'; 
     
 }
+$fnamel=$_POST["fName"];
+$lnamel=$_POST["lName"];
+$emaill=$_POST["email"];
+$contactl=$_POST["contactNumber"];
+$passl=$_POST["pass"];
+$shopnamel=$_POST["shopName"];
+$gstl=$_POST["gst"];
+$shopaddl=$_POST["shopAdd"];
+
+
 }
 
 ?>
@@ -176,15 +191,16 @@ $conn->close();
                     <div class="col-lg-6">
                         <div class="form-group">
                         <label for="fName">First Name:</label>
-                        <input type="text" name="fName" id="fName" placeholder="Enter First Name" class="form-control">
-                        <?php echo $fnamemsg;?>
+                        <input type="text" name="fName" id="fName" placeholder="Enter First Name" class="form-control"  value="<?php echo $fnamel;?>" >
+                        <erm><?php echo $fnamemsg;?></erm>
                         </div>
                     </div>
+                    
             <div class="col-lg-6">
                 <div class="form-group">
                     <label for="lName">Last Name:</label>
-                    <input type="text" name="lName" id="lName" placeholder="Enter Last Name" class="form-control">
-                    <?php echo $lnamemsg;?>
+                    <input type="text" name="lName" id="lName" placeholder="Enter Last Name" class="form-control" value="<?php echo $lnamel;?>">
+                    <erm><?php echo $lnamemsg;?></erm>
                     </div>
                     </div>
                 </div>
@@ -194,15 +210,15 @@ $conn->close();
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="contactNumber">Contact Number:</label>
-                        <input type="text" name="contactNumber" id="contactNumber" placeholder="Enter Contact Number" class="form-control">
-                        <?php echo $phonemsg;?>
+                        <input type="text" name="contactNumber" id="contactNumber" placeholder="Enter Contact Number" class="form-control" value="<?php echo $contactl;?>" >
+                        <erm><?php echo $phonemsg;?></erm>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
                         <label for="email">Enter Email:</label>
-                        <input type="email" name="email" id="email" placeholder="Enter Email" class="form-control">
-                        <?php echo $Emailerr;?>
+                        <input type="email" name="email" id="email" placeholder="Enter Email" class="form-control" value="<?php echo $emaill;?>" >
+                        <erm><?php echo $Emailerr;?></erm>
 
                         </div>
                     </div>
@@ -212,8 +228,8 @@ $conn->close();
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="pass">Enter Password:</label>
-                        <input type="password" name="pass" id="pass" placeholder="Enter Password" class="form-control">
-                        <?php echo $errpass;?>
+                        <input type="password" name="pass" id="pass" placeholder="Enter Password" class="form-control" value="<?php echo $passl;?>">
+                        <erm><?php echo $errpass;?></erm>
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -231,8 +247,8 @@ $conn->close();
                             <div class="col-lg-12">
                                 <div class="form-group">
                                 <label for="shopName">Enter Shop Name:</label>
-                                <input type="text" name="shopName" id="shopName" placeholder="Enter Shop Name" class="form-control">
-                                <?php echo $shopname;?>
+                                <input type="text" name="shopName" id="shopName" placeholder="Enter Shop Name" class="form-control" value="<?php echo $shopnamel;?>">
+                                <erm><?php echo $shopname;?></erm>
 
                                 </div>
                             </div>
@@ -241,8 +257,8 @@ $conn->close();
                             <div class="col-lg-12">
                                 <div class="form-group">
                                 <label for="shopName">Enter GST Number:</label>
-                                <input type="text" name="gst" id="gst" placeholder="Enter GST Number" class="form-control">
-                        <?php echo $gst;?>
+                                <input type="text" name="gst" id="gst" placeholder="Enter GST Number" class="form-control" value="<?php echo $gstl;?>">
+                                <erm>  <?php echo $gst;?> </erm>
                                 
                                 </div>
                             </div>
@@ -288,8 +304,8 @@ echo "Connected successfully";
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">Shop Address:</label>
-                            <textarea class="form-control" id="shopAdd" name="shopAdd"  placeholder="Enter Shop Address" class="form-control"></textarea>
-                            <?php echo $add;?>
+                            <textarea class="form-control" id="shopAdd" name="shopAdd"  placeholder="Enter Shop Address" class="form-control" value="<?php echo $shopaddl;?>"></textarea>
+                            <erm>  <?php echo $add;?> </erm>
                       
                         </div>
                     </div>
