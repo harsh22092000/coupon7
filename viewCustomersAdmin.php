@@ -40,6 +40,7 @@
                 <th>Name</th>
                 <th>Contact No</th>
                 <th>Date of Registration</th>
+                <th>End Date of Subscription</th>
                 <th>Email</th>
                 <th style="width: 10%;">Address</th>
                 <th>Email Verified</th>
@@ -55,11 +56,13 @@
         $query=$conn->query($result);
       while ($r= mysqli_fetch_array($query))
             {
+                $endsub = date('Y-m-d', strtotime('+1 year', strtotime($r["DateofRegistration"])) );
           ?>
           <tr>
               <td><?php echo $r["fName"].' '. $r["lName"]." - ".$r["gender"]; ?></td>
                 <td><?php  echo $r["contactNo"];?></td>
                 <td><?php  echo $r["DateofRegistration"];?></td>
+                <td><?php  echo $endsub; ?></td>
                 <td><?php  echo $r["email"];?></td>
                 <td><?php  echo $r["address"];?></td>
                 <td><?php 
@@ -80,7 +83,16 @@
                 </td>
                 <td>
                 <a href="javascript:void(0)" onclick="reject(<?php echo $r['cId'];?>)" >Reject</a> 
-
+                <?php
+              
+                 if (date('Y-m-d') > $endsub)
+                {?>
+                <a href="javascript:void(0)" onclick="sub(<?php echo $r['cId']; ?>)">Renew </a>
+                       
+                
+                <?php    }                 ?>
+                    <!-- <f>sfdg</f> -->
+                
                     <?php  
 //                echo $r["isApprove"];
                 ?></td>
@@ -100,6 +112,21 @@
 $(document).ready(function() {
     $('#example').DataTable();
 } );
+function sub(cid){
+    var id=cid;
+    $.ajax({ 
+              type:"GET",
+              url:"app_rej.php",
+              // data: "id="+id,
+              data: { id: id, action: 'renew' },
+              success:function(data)
+              {
+                  alert('Renewed');
+                  location.reload();
+              }
+            });
+
+}
 function reject(cid){
     var id = cid;
             // var mail = $('#hid_Email').val();
@@ -120,6 +147,7 @@ function reject(cid){
               }
             });
 }
+
 //var employeeData = $('#example').DataTable({
 //	"lengthChange": false,
 //	"processing":true,

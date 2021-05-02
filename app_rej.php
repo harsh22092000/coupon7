@@ -56,3 +56,26 @@
         $q = "update tbl_Customer set isApprove = 2 where cId = $id";
         mysqli_query($conn,$q);
     }
+    if(strcmp($action,"renew") == 0)
+    {
+//            require '../PHPMailer/src/Exception.php';
+//            require '../PHPMailer/src/PHPMailer.php';
+//            require '../PHPMailer/src/SMTP.php';
+//            $mail = new PHPMailer(true);
+//            $mail->isSMTP();
+//            $mail->Host = 'smtp.gmail.com';
+//            $mail->Port = 587;
+//            $mail->SMTPAuth = true;
+//            $mail->Username = '';
+//            $mail->Password = '';
+//            $mail->SMTPSecure = 'tls';
+//            $mail->setFrom('');
+//            $mail->addAddress($email);
+//            $mail->Subject = '';
+//            $message_body = "" ;
+//            $mail->Body = $message_body;
+//            $mail->send();
+    
+         $q = "update tbl_Customer set DateofRegistration='".date('Y-m-d')."' where cId = $id";
+         mysqli_query($conn,$q);
+    }
