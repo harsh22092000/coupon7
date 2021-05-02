@@ -199,14 +199,14 @@ $conn->close();
                                     <span class="glyphicon glyphicon-calendar"></span>
                                 </span>
                             </div>-->
-<input type="Date" name="startDate" id="startDate"  class="form-control" min="2021-03-21" required>
+<input type="Date" name="startDate" id="startDate"  class="form-control" min="<?php echo date("Y-m-d");?>" required>
                         <?php echo $sdate;?>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="startDate">Enter Expire Date:</label>
-                            <input type="Date" name="expireDate" id="expireDate"  class="form-control" min="2021-03-22" >
+                            <input type="Date" name="expireDate" id="expireDate"  class="form-control" min="<?php echo date("Y-m-d", strtotime('tomorrow'));?>" >
                         <?php echo $edate;?>
                         </div>
                     </div>

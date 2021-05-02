@@ -123,7 +123,7 @@ $sr=1;
 
 $(document).ready(function() {
     $("#example").DataTable({
-        
+        "responsive":true,
       "buttons": ["copy", "csv", "pdf", "print"]
     }).buttons().container().appendTo('.exportas');
 } );

@@ -50,7 +50,7 @@ if(empty($_SESSION)|| $_SESSION["role"]!='S')
 
         </div>
         <div class="info">
-            <a href="userProfileAdmin.php" class="d-block"><?php echo $_SESSION["fName"]."  ". $_SESSION["lName"]."  ".$_SESSION["sId"]." ".$_SESSION["role"];?> </a>
+            <a href="userProfileAdmin.php" class="d-block"><?php echo $_SESSION["fName"]."  ". $_SESSION["lName"];?> </a>
         </div>
       </div>
 
@@ -101,9 +101,9 @@ if(empty($_SESSION)|| $_SESSION["role"]!='S')
                 </a>
               </li>
               <li class="nav-item">
-                  <a href="viewCouponShop.php" class="nav-link">
+                  <a href="shopActiveCoupon.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Manage Coupon</p>
+                  <p>View Coupon</p>
                 </a>
               </li>
                

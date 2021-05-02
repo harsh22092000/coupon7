@@ -42,8 +42,11 @@
                 <div class='card' style='width: 18rem;'>
                     <img src='image/coupons/".$r['couponImage']."' class='card-img-top' alt='...'>
                       <div class='card-body'>
-                        <p class='card-text'>".$r['offer']."
-                        <br><br>Valid Up to:<span style='color:red;'>".$r['couponExpireDate']."</span>   
+                      
+                       <p class='card-text'>Offer: ".$r['offer']."
+                        <br>
+                        Coupon Code:".$r['couponCode']."
+                        <br>Valid Up to:<span style='color:red;'>".$r['couponExpireDate']."</span>   
 	
                         </p>
                             

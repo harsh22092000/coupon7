@@ -44,7 +44,7 @@ if(empty($_SESSION) || $_SESSION["role"]!='C')
 
         </div>
         <div class="info">
-            <a href="userProfile.php" class="d-block"><?php echo $_SESSION["fName"]."  ". $_SESSION["lName"]."  ".$_SESSION["sId"]." ".$_SESSION["role"];?> </a>
+            <a href="userProfile.php" class="d-block"><?php echo $_SESSION["fName"]."  ". $_SESSION["lName"];?> </a>
         </div>
       </div>
 

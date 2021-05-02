@@ -2,8 +2,8 @@
 <div class="content-wrapper">
     <center>
     <form action="#" method="post">
-        <input type="text" name="amt"  required >
-    <?php echo $errss?>
+        <input type="text" name="amt" pattern="^[0-9]+$" title="Only Digits" required >
+    <?php echo $errss;?>
     <input type="submit" name="submit" value="Generate QR">
 </center>
     </form>
@@ -20,13 +20,12 @@ if(isset($_REQUEST["submit"])){
         }
         else
         {
-//         if(!preg_match("/^[0-9]{1, }$/", $_POST["amt"]))
-//                {
-////             swal("Good job!", "You clicked the button!", "success");
-//
-//                        $errss="Only Digits";
-//                        $flag=1;
-//                }     
+       if(!preg_match("/^[0-9]+$/", $_POST["amt"]))
+               {
+
+                       $errss="Only Digits";
+                       $flag=1;
+               }     
         }
         if($flag==0){
             require_once './phpqrcode/qrlib.php';
@@ -41,5 +40,5 @@ if(isset($_REQUEST["submit"])){
 ?>
 
         
-        <a href="scanqr.php">Scanner</a>
+        <!-- <a href="scanqr.php">Scanner</a> -->
 </div>

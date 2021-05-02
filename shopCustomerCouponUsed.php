@@ -11,13 +11,32 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="//cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
         <!--fads-->
+              
+<link rel="stylesheet" href="plugins\datatables\jquery.dataTables.min.css">
+        <link rel="stylesheet" href="plugins\datatables\buttons.dataTables.min.css">
         
-        <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/jquery.dataTables.min.js"></script>
+        <script src="./plugins/jquery/jquery.min.js"></script>
+         <script src="./plugins/Others/datatables/jquery.dataTables.min.js"></script>
+<script src="./plugins/Others/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="./plugins/Others/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="./plugins/Others/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="./plugins/Others/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="./plugins/Others/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="./plugins/Others/jszip/jszip.min.js"></script>
+<script src="./plugins/Others/pdfmake/pdfmake.min.js"></script>
+<script src="./plugins/Others/pdfmake/vfs_fonts.js"></script>
+<script src="./plugins/Others/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="./plugins/Others/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="./plugins/Others/datatables-buttons/js/buttons.colVis.min.js"></script>
+
         <style>
             .action{
                 width: 70px;
             }
         </style>
+        <center><h1>Redeem Coupon</h1></center>
+        <span class="exportas"> </span>
+
         <table id="example" class="display" style="width:100%">
         <thead>
            
@@ -68,7 +87,10 @@
        
 <script type="text/javascript">
 $(document).ready(function() {
-    $('#example').DataTable();
+    $('#example').DataTable({
+        "responsive":true,
+        "buttons": ["copy", "csv", "pdf", "print"]
+      }).buttons().container().appendTo('.exportas');
 } );
 
 
