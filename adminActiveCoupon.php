@@ -53,10 +53,10 @@
                 <th>Shop Details</th>
                 <th>Shop Owner Details</th>
                 <th>Contact Details</th>
-                <th>Coupon Details</th>
+                <th style="width: 10px;">Coupon Details</th>
                 <th>Coupon Image</th>
                 <!-- <th style="width: 10%; " >Image</th> -->
-                <th style="width:30%;">No of Time Redeemed</th>
+                <th style="width: 10px;">No of Time Redeemed</th>
                 <th>status</th>
                 <!-- <th style="width: 10%;">expire Date</th>
                 <th style="width: 10%;" > is approve</th> -->
@@ -82,7 +82,7 @@ $sr=1;
             <td><?php echo $r["contact"]."\n". $r["email"]; ?></td>
              <td style=" width:300px;"><?php echo "Coupon Code:".$r["couponCode"]."</br> offer :".$r["offer"]."</br> Discount:".$r["discount"]."</br> Creation Date:".$r["couponDate"]."</br><ids> Expire Date: </ids>".$r["couponExpireDate"]; ?> </td>
              <td><img style=" height: 100px;" src="./image/coupons/<?php  echo $r["couponImage"];?>" alt="" srcset=""></td>
-             <td><?php echo $r["noofrc"];?></td>
+             <td style="width: 10px;"><?php echo $r["noofrc"];?></td>
             <td><?php 
             if($r["couponExpireDate"]>date('Y-m-d')){
                 if ($r["isApprove"]==1)
