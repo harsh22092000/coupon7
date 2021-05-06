@@ -98,12 +98,12 @@ use PHPMailer\PHPMailer\Exception;
             {
            
             if ($_POST['otp'] == $_SESSION['otp'])
-            {
+            { echo '<script>alert("verified successfully");</script>';
                      if(isset($_REQUEST["login"])){
     $sql = "UPDATE tbl_Customer SET is_Verified=1  WHERE email='".$_SESSION['email']."'";
 
 if ($conn->query($sql) === TRUE) {   
-    echo "<script>alert('verified successfully');</script>";
+    echo '<script>alert("verified successfully");</script>';
 
 header('location:login.php');
 } else {

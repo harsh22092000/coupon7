@@ -9,6 +9,11 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 ?>
+<style>
+erm{
+    color:red;
+}
+</style>
 <?php
 $flag=0;
 if(isset($_REQUEST["submit"])){
@@ -18,6 +23,8 @@ if(isset($_REQUEST["submit"])){
       // $fname=$_POST["fname"];
         //$lname=$_POST["lname"];
         //$email=$_POST["email"];
+        $fnamer=$_POST["fName"];
+        $lnamer=$_POST["lName"];
         if(empty($_POST["fName"]))
         {
             $fnamemsg="This Field must be Filled";
@@ -31,7 +38,7 @@ if(isset($_REQUEST["submit"])){
             } 
         }
        
-        
+    
         if(empty($_POST["lName"]))
         {
             $lnamemsg="This Field must be Filled";
@@ -48,7 +55,7 @@ if(isset($_REQUEST["submit"])){
        
        
        $Emailerr=""; 
-        
+        $emailr=$_POST["email"];        
 	if(empty($_POST["email"]))
         {
             $Emailerr="Email must be Filled";
@@ -69,7 +76,7 @@ if(isset($_REQUEST["submit"])){
 //        $phone = '0000000000';
         $phonemsg="";
         
-        
+        $phr=$_POST["contactNumber"];
         if(empty($_POST["contactNumber"]))
         { 
                 $phonemsg= "Phone number must be filled...";
@@ -210,16 +217,16 @@ $code = rand(1111, 9999);
                     <div class="col-lg-6">
                         <div class="form-group">
                         <label for="fName">First Name:</label>
-                        <input type="text" name="fName" id="fName" placeholder="Enter First Name" class="form-control">
-                        <?php 
-                        echo $fnamemsg?>
+                        <input type="text" name="fName" id="fName" placeholder="Enter First Name" value="<?php echo $fnamer; ?>" class="form-control">
+              <erm>          <?php 
+                        echo $fnamemsg?></erm>
                         </div>
                     </div>
             <div class="col-lg-6">
                 <div class="form-group">
                     <label for="lName">Last Name:</label>
-                    <input type="text" name="lName" id="lName" placeholder="Enter Last Name" class="form-control">
-                    <?php echo $lnamemsg?>
+                    <input type="text" name="lName" id="lName" placeholder="Enter Last Name" class="form-control" value="<?php echo $lnamer; ?>" >
+                  <erm>  <?php echo $lnamemsg?></erm>
                     </div>
                     </div>
                 </div>
@@ -229,15 +236,15 @@ $code = rand(1111, 9999);
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label for="contactNumber">Contact Number:</label>
-                        <input type="text" name="contactNumber" id="contactNumber" placeholder="Enter Contact Number" class="form-control">
-                        <?php echo $phonemsg?>
+                        <input type="text" name="contactNumber" id="contactNumber" placeholder="Enter Contact Number" class="form-control" value="<?php echo $phr; ?>"> 
+                        <erm><?php echo $phonemsg?></erm>
                         </div>
                     </div>
                     <div class="col-lg-12">
                         <div class="form-group">
                         <label for="email">Enter Email</label>
-                        <input type="email" name="email" id="email" placeholder="Enter Email" class="form-control">
-                        <?php echo $Emailerr?>
+                        <input type="email" name="email" id="email" placeholder="Enter Email" class="form-control" value="<?php echo $emailr; ?>">
+                        <erm><?php echo $Emailerr?></erm>
                         
                     </div>
                     </div>
@@ -248,7 +255,7 @@ $code = rand(1111, 9999);
                         <div class="form-group">
                             <label for="pass">Enter Password:</label>
                         <input type="password" name="pass" id="pass" placeholder="Enter Password" class="form-control">
-                        <?php echo $errpass?>
+                       <erm> <?php echo $errpass?></erm>
                         </div>
                     </div>
                     <div class="col-lg-12" style="padding-top: 10px; ">
@@ -278,7 +285,7 @@ $code = rand(1111, 9999);
 </div>
     
 </td>
-<?php echo $genderer; ?>
+<erm><?php echo $genderer; ?></erm>
                 </tr>
             </table>
                         
