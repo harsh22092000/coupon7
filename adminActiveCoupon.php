@@ -103,9 +103,12 @@ $sr=1;
             {?>
                                 <span class="badge bg-danger">  
                    <?php echo 'Expired'; ?>
+            </span>
             <?php
             }
-                ?></td>
+                ?>
+               
+            </td>
                 </tr>
             <?php
             $sr++;
