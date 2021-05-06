@@ -79,3 +79,18 @@
          $q = "update tbl_Customer set DateofRegistration='".date('Y-m-d')."' where cId = $id";
          mysqli_query($conn,$q);
     }
+
+    if(strcmp($action,"extends") == 0)
+    {
+        // $next_due_date = date('Y-m-d',strtotime('+30 days',date('Y-m-d'))) ;
+
+
+        $edate = new DateTime(date('Y-m-d')); // Y-m-d
+        $edate->add(new DateInterval('P30D'));
+        // echo $edate->format('Y-m-d') . "\n";
+
+        // $next_due_date = date(date('Y-m-d'), strtotime("+30 days"));
+        // echo $next_due_date;
+        $q = "update tbl_coupon set couponExpireDate='".$edate->format('Y-m-d')."' where couponId = $id";
+        mysqli_query($conn,$q);
+    }
